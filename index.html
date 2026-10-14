@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mars Snail Colony</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <!-- Логотип и название колонии -->
+        <div class="colony-info">
+
+            <div class="logo">
+                <img src="assets/main_icon.png" alt="Логотип колонии">
+            </div>
+
+            <div class="colony-name">
+                <h1>[NAME_COLONY_SNAIL]</h1>
+                <p>Martian Snail Emperor</p>
+            </div>
+
+        </div>
+
+
+        <!-- Ресурсы -->
+        <div class="resources">
+
+            <div class="resource">
+                <div class="logo_resource">
+                <img src="assets/coins.png" alt="Монеты">
+                </div>
+
+                <div class="resource-info">
+                    <span>COINS</span>
+                    <strong id="coinsCount">0</strong>
+                </div>
+            </div>
+
+            <div class="resource">
+                <div class="logo_resource">
+                <img src="assets/oxygen.png" alt="Кислород">
+                </div>
+
+                <div class="resource-info">
+                    <span>OXYGEN</span>
+                    <strong id="oxygenCount">0</strong>
+                </div>
+            </div>
+
+            <div class="resource">
+                <div class="logo_resource">
+                <img src="assets/water.png" alt="Вода">
+                </div>
+                
+                <div class="resource-info">
+                    <span>WATER</span>
+                    <strong id="waterCount">0</strong>
+                </div>
+            </div>
+
+            <div class="resource">
+                <div class="logo_resource">
+                <img src="assets/food.png" alt="Еда">
+                </div>
+
+                <div class="resource-info">
+                    <span>FOOD</span>
+                    <strong id="foodCount">0</strong>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="main-content">
+
+        <nav class="sidebar">
+
+            <a href="#" class="menu-item active" id="colonyLink">
+                <img src="assets/planet_icon.png" alt="">
+                <span>Snail Colony</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <img src="assets/food.png" alt="">
+                <span>Farming Deck</span>
+            </a>
+
+            <a href="#" class="menu-item" id="snailsLink">
+                <img src="assets/snail_icon_pinc.png" alt="">
+                <span>Snails</span>
+            </a>
+
+            <a href="#" class="menu-item" id="buildingsLink">
+                <img src="assets/buildings.png" alt="">
+                <span>Buildings</span>
+            </a>
+
+            <a href="#" class="menu-item" id="upgradeLink">
+                <img src="assets/upgrade.png" alt="">
+                <span>Upgrade</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <img src="assets/statistic.png" alt="">
+                <span>Statistic</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <img src="assets/achievements.png" alt="">
+                <span>Achievement</span>
+            </a>
+
+        </nav>
+
+        <div class="workspace">
+
+            <section class="game-area">
+
+                <div class="game-panel">
+
+                    <div class="game-description">
+                        <h2>Martian Snail Colony</h2>
+
+                        <p>
+                            Click on the
+                            <span class="highlight">Martian snail colonist</span>
+                            to mine coins manually.
+                        </p>
+                    </div>
+
+                        <div class="planet-area">
+
+                            <img
+                                src="assets/martian_bg.png"
+                                alt="Марсианский пейзаж"
+                                class="mars-background"
+                            >
+
+                            <button class="snail-button" id="earnButton">
+                                <img
+                                    src="assets/CENTRAL_BUTTON.png"
+                                    alt="Космическая улитка"
+                                >
+                            </button>
+
+                        </div>
+
+                </div>
+            </section>
+                
+            <!-- Экран улучшений -->
+            <section class="upgrade-screen" id="upgradeScreen">
+
+                <div class="upgrade-header">
+                    <img src="assets/upgrade.png" alt="">
+                    <div>
+                        <h2>Upgrade Laboratory</h2>
+                        <p>Improve your colony and adapt to Mars.</p>
+                    </div>
+                </div>
+
+                <div class="upgrade-list">
+
+                    <button class="upgrade-card" id="miningUpgrade">
+                        <img class="upgrade-icon" src="assets/coins.png" alt="Монеты">
+
+                        <div class="upgrade-info">
+                            <div class="upgrade-title">
+                                <h3>Improved Mining</h3>
+                                <span id="miningLevel">Lv. 0</span>
+                            </div>
+
+                            <p>Earn more coins with every click.</p>
+
+                            <div class="upgrade-cost">
+                                <img src="assets/coins.png" alt="">
+                                <strong id="miningCost">25</strong>
+                            </div>
+                        </div>
+                    </button>
+
+                    <button class="upgrade-card" id="nutritionUpgrade">
+
+                        <img
+                            class="upgrade-icon"
+                            src="assets/food.png"
+                            alt="Питание"
+                        >
+
+                        <div class="upgrade-info">
+                            <div class="upgrade-title">
+                                <h3>Improved nutrition</h3>
+                                <span id="nutritionLevel">Lv. 0</span>
+                            </div>
+
+
+                            <p>Increases the efficiency of snail nutrition.</p>
+
+                            <div class="upgrade-cost">
+                                <img src="assets/coins.png" alt="">
+                                <strong id="nutritionCost">250</strong>
+                            </div>
+                        </div>
+
+                    </button>
+
+                </div>
+
+                <p id="upgradeMessage"></p>
+
+            </section>
+
+            <!-- Экран питающихся улиток --> 
+            <section class="snails-screen" id="snailsScreen">
+
+                <div class="snails-header">
+                    <div>
+                        <h2>Snail Nursery</h2>
+                        <p>Expand your colony with new snail workers.</p>
+                    </div>
+
+                    <div class="snails-total">
+                        <span>Total workers</span>
+                        <strong id="totalSnails">0</strong>
+                    </div>
+                </div>
+
+                <h3 class="snail-class-title">WORKER CLASS</h3>
+
+                <div class="snails-list">
+
+                    <div class="snail-card">
+                        <div class="snail-card-icon">🐌</div>
+                        <div class="snail-card-info">
+                            <h3>Worker I</h3>
+                            <p>Basic snail worker.</p>
+                            <span>+1 coin/sec</span>
+                            <span>Owned: <strong id="worker1Count">0</strong></span>
+                            <span>Price: <strong id="worker1Price">100</strong> coins</span>
+                            <button class="buy-snail-button" id="buyWorker1">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="snail-card">
+                        <div class="snail-card-icon">🐌</div>
+                        <div class="snail-card-info">
+                            <h3>Worker II</h3>
+                            <p>Improved snail worker.</p>
+                            <span>+5 coins/sec</span>
+                            <span>Owned: <strong id="worker2Count">0</strong></span>
+                            <span>Price: <strong id="worker2Price">600</strong> coins</span>
+                            <button class="buy-snail-button" id="buyWorker2">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="snail-card">
+                        <div class="snail-card-icon">🐌</div>
+                        <div class="snail-card-info">
+                            <h3>Worker III</h3>
+                            <p>Efficient snail worker.</p>
+                            <span>+20 coins/sec</span>
+                            <span>Owned: <strong id="worker3Count">0</strong></span>
+                            <span>Price: <strong id="worker3Price">3000</strong> coins</span>
+                            <button class="buy-snail-button" id="buyWorker3">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="snail-card">
+                        <div class="snail-card-icon">🐌</div>
+                        <div class="snail-card-info">
+                            <h3>Worker IV</h3>
+                            <p>Elite snail worker.</p>
+                            <span>+80 coins/sec</span>
+                            <span>Owned: <strong id="worker4Count">0</strong></span>
+                            <span>Price: <strong id="worker4Price">15000</strong> coins</span>
+                            <button class="buy-snail-button" id="buyWorker4">Purchase</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h3 class="snail-class-title">OXYGEN TRADERS</h3>
+                <p class="section-description">These snails consume oxygen and turn it into coins. Production pauses when oxygen is insufficient.</p>
+                <div class="snails-list" id="oxygenSnailsList"></div>
+
+                <h3 class="snail-class-title">WATER TRADERS</h3>
+                <p class="section-description">These snails consume water and turn it into coins. Production pauses when water is insufficient.</p>
+                <div class="snails-list" id="waterSnailsList"></div>
+
+                <h3 class="snail-class-title">FOOD TRADERS</h3>
+                <p class="section-description">These snails consume food and earn coins. They will become useful after hydroponic farms are built.</p>
+                <div class="snails-list" id="foodSnailsList"></div>
+
+                <p id="snailMessage"></p>
+
+            </section>
+
+
+            <!-- Экран зданий -->
+            <section class="buildings-screen" id="buildingsScreen">
+                <div class="buildings-header">
+                    <div>
+                        <h2>Oxygen Generators</h2>
+                        <p>Produce oxygen for your Martian colony.</p>
+                    </div>
+                    <div class="buildings-total">
+                        <span>Total generators</span>
+                        <strong id="totalGenerators">0</strong>
+                    </div>
+                </div>
+
+                <h3 class="building-class-title">OXYGEN PRODUCTION</h3>
+
+                <div class="buildings-list">
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Basic Generator">
+                        <div class="building-info">
+                            <h3>Basic Generator</h3>
+                            <p>Small oxygen production unit.</p>
+                            <span>+1 oxygen/sec</span>
+                            <p>Owned: <strong id="generator1Owned">0</strong></p>
+                            <p>Price: <strong id="generator1Price">150</strong> coins</p>
+                            <button id="buyGenerator1">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Advanced Generator">
+                        <div class="building-info">
+                            <h3>Advanced Generator</h3>
+                            <p>Improved oxygen production.</p>
+                            <span>+5 oxygen/sec</span>
+                            <p>Owned: <strong id="generator2Owned">0</strong></p>
+                            <p>Price: <strong id="generator2Price">750</strong> coins</p>
+                            <button id="buyGenerator2">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Industrial Generator">
+                        <div class="building-info">
+                            <h3>Industrial Generator</h3>
+                            <p>High-capacity oxygen generator.</p>
+                            <span>+20 oxygen/sec</span>
+                            <p>Owned: <strong id="generator3Owned">0</strong></p>
+                            <p>Price: <strong id="generator3Price">3500</strong> coins</p>
+                            <button id="buyGenerator3">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Oxygen Complex">
+                        <div class="building-info">
+                            <h3>Oxygen Complex</h3>
+                            <p>Large-scale oxygen production facility.</p>
+                            <span>+80 oxygen/sec</span>
+                            <p>Owned: <strong id="generator4Owned">0</strong></p>
+                            <p>Price: <strong id="generator4Price">15000</strong> coins</p>
+                            <button id="buyGenerator4">Purchase</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="building-class-title">WATER EXTRACTION</h3>
+
+                <div class="buildings-list">
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Basic Water Extractor">
+                        <div class="building-info">
+                            <h3>Basic Water Extractor</h3>
+                            <p>Extracts small amounts of underground ice.</p>
+                            <span>+1 water/sec</span>
+                            <p>Owned: <strong id="extractor1Owned">0</strong></p>
+                            <p>Price: <strong id="extractor1Price">200</strong> coins</p>
+                            <button id="buyExtractor1">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Advanced Water Extractor">
+                        <div class="building-info">
+                            <h3>Advanced Water Extractor</h3>
+                            <p>More efficient ice extraction equipment.</p>
+                            <span>+5 water/sec</span>
+                            <p>Owned: <strong id="extractor2Owned">0</strong></p>
+                            <p>Price: <strong id="extractor2Price">1000</strong> coins</p>
+                            <button id="buyExtractor2">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Industrial Water Extractor">
+                        <div class="building-info">
+                            <h3>Industrial Water Extractor</h3>
+                            <p>Extracts water on an industrial scale.</p>
+                            <span>+20 water/sec</span>
+                            <p>Owned: <strong id="extractor3Owned">0</strong></p>
+                            <p>Price: <strong id="extractor3Price">4500</strong> coins</p>
+                            <button id="buyExtractor3">Purchase</button>
+                        </div>
+                    </div>
+
+                    <div class="building-card">
+                        <img src="assets/buildings.png" alt="Water Extraction Complex">
+                        <div class="building-info">
+                            <h3>Water Extraction Complex</h3>
+                            <p>A large facility for colony water supply.</p>
+                            <span>+80 water/sec</span>
+                            <p>Owned: <strong id="extractor4Owned">0</strong></p>
+                            <p>Price: <strong id="extractor4Price">20000</strong> coins</p>
+                            <button id="buyExtractor4">Purchase</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="building-class-title">HYDROPONIC FARMS</h3>
+                <p class="section-description">Farms consume both water and oxygen to produce food. If either resource is missing, farm production pauses.</p>
+                <div class="buildings-list" id="farmBuildingsList"></div>
+
+                <p id="buildingMessage"></p>
+            </section>
+
+            <aside class="production-panel">
+                <h3>PRODUCTION</h3>
+
+                <div class="production-item">
+                    <span>Coins / sec</span>
+                    <strong id="coinsRate">+0</strong>
+                </div>
+
+                <div class="production-item">
+                    <span>Coins / click</span>
+                    <strong id="clickRate">+1</strong>
+                </div>
+
+                <div class="production-item">
+                    <span>Oxygen / sec</span>
+                    <strong class="oxygen-rate" id="oxygenRate">+0</strong>
+                </div>
+
+                <div class="production-item">
+                    <span>Water / sec</span>
+                    <strong class="water-rate" id="waterRate">+0</strong>
+                </div>
+
+                <div class="production-item">
+                    <span>Food / sec</span>
+                    <strong class="food-rate" id="foodRate">+0</strong>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    
+    <div id="upgradeNotifications" class="upgrade-notifications"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
